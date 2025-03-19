@@ -1,14 +1,12 @@
 package br.com.contatos.api.entities;
 
 import br.com.contatos.api.dto.ContactDTO;
-import br.com.contatos.api.entities.enums.LeadStatusEnum;
+import br.com.contatos.api.dto.client.ContactPropertiesDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -57,6 +55,16 @@ public class Contact implements Serializable {
 		newContact.setLifecyclestage(dto.getLifeCycleStage());
 		newContact.setLeadStatus(dto.getLeadStatus());
 		newContact.setUser(user);
+		return newContact;
+	}
+
+	public static Contact newContact(ContactPropertiesDTO dto) {
+		Contact newContact = new Contact();
+		newContact.setEmail(dto.getEmail());
+		newContact.setFirstname(dto.getFirstname());
+		newContact.setLastname(dto.getLastname());
+		newContact.setPhone(dto.getPhone());
+		newContact.setLeadStatus(dto.getLeadStatus());
 		return newContact;
 	}
 }

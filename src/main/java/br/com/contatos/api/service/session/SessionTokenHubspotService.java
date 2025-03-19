@@ -29,6 +29,10 @@ public class SessionTokenHubspotService {
 		return SessionContextHolderService.getSession().getAttribute("token_hubspot");
 	}
 
+	public static boolean hasSession() {
+		return getSession() != null;
+	}
+
 	public static void dropSession() {
 		SessionContextHolderService.getSession().removeAttribute("token_hubspot");
 	}

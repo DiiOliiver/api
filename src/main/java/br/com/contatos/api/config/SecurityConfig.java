@@ -36,8 +36,9 @@ public class SecurityConfig {
 		httpSecurity
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(authorize -> authorize
-				.requestMatchers(HttpMethod.POST, "api/v1/auth/login").permitAll()
-				.requestMatchers(HttpMethod.GET, "api/v1/auth/callback").permitAll()
+				.requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
+				.requestMatchers(HttpMethod.POST, "/api/v1/webhooks/contact-created").permitAll()
+				.requestMatchers(HttpMethod.GET, "/api/v1/auth/callback").permitAll()
 				.requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
 				.requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll()
 				.anyRequest().authenticated())

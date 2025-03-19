@@ -12,4 +12,6 @@ public class PathRest {
 	public static final String INSTALL = "/install";
 	public static final String CALLBACK = "/callback";
 	public static final String CONTACTS = "/contacts";
+	public static final String WEBHOOKS = "/webhooks";
+	public static final String CONTACT_CREATED = "/contact-created";
 }
