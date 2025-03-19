@@ -1,0 +1,8 @@
+CREATE TABLE tb_roles (
+     id BIGSERIAL NOT NULL PRIMARY KEY,
+     name VARCHAR(255) NOT NULL,
+     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NOT NULL,
+     updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+INSERT INTO tb_roles (name) values ('admin'), ('basic');
