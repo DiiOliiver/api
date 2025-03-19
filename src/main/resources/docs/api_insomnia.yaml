@@ -1,0 +1,191 @@
+type: collection.insomnia.rest/5.0
+name: api (Integrando HubSpot)
+meta:
+  id: wrk_6c65b9d04a6a415f8ccb403f787e1a07
+  created: 1741977555930
+  modified: 1741977555930
+collection:
+  - name: api - local
+    meta:
+      id: fld_17552719b1894175b5c5e5ae1e8da3ec
+      created: 1742246802906
+      modified: 1742246824972
+      sortKey: -1742246802906
+    children:
+      - name: auth
+        meta:
+          id: fld_f72f252e6f8541be993fcfae054fcaa4
+          created: 1741977676902
+          modified: 1742358673694
+          sortKey: -1742358658450
+        children:
+          - url: "{{ _.base_url }}/auth/install"
+            name: install
+            meta:
+              id: req_1c8725586c074d84993e1a0aa92df312
+              created: 1741977679591
+              modified: 1742339128122
+              isPrivate: false
+              sortKey: -1740355438091.5
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/10.3.1
+            authentication:
+              type: bearer
+              token: "{{ _.token }}"
+              prefix: "Bearer "
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}/auth/login"
+            name: login
+            meta:
+              id: req_04541dd115a94a24b8e19bf6be7ea67c
+              created: 1742026388845
+              modified: 1742045683994
+              isPrivate: false
+              sortKey: -1740355438191.5
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"username": "admin",
+                	"password": "Admin@123"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/10.3.1
+                id: pair_9a6afcbefcae4f7999628c309759ae9f
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: contact
+        meta:
+          id: fld_b881e969643b4a4e88189286b1acad8d
+          created: 1742176952356
+          modified: 1742343108748
+          sortKey: -1742246808083
+        children:
+          - url: "{{ _.base_url }}/contacts"
+            name: create
+            meta:
+              id: req_c675ee1dbd9f4703aa2663313963ca84
+              created: 1742246793785
+              modified: 1742343102844
+              isPrivate: false
+              sortKey: -1742246793785
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"email": "diego@hubspot.com",
+                	"firstName": "Sirus",
+                	"lastName": "Brown",
+                	"phone": "(92) 99269-7918",
+                	"lifeCycleStage": "lead",
+                	"leadStatus": "new"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+                id: pair_9542977d4c824e59940622bd3680d782
+              - name: User-Agent
+                value: insomnia/10.3.1
+                id: pair_24ff822daad04b3e91cfb2af18305e95
+              - id: pair_4192fd388eb844b8a7de9589d0f22bfe
+                name: Token-Hubspot
+                value: "{{ _.token_hubspot }}"
+                disabled: false
+            authentication:
+              type: bearer
+              token: "{{ _.token }}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a7368ce34b4614c1baa901f9460e752f27719be2
+    created: 1741977555936
+    modified: 1742361980776
+  cookies:
+    - key: JSESSIONID
+      value: E51006097C60F466C07667D7BB1F1DFE
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-03-14T19:03:40.913Z
+      lastAccessed: 2025-03-14T19:03:40.913Z
+      id: 1ab25a35-f0d4-4f06-8a8d-0a1c5d2cb1cc
+    - key: __cf_bm
+      value: tN14tR6GgvEWRnrTEZSd7P1mMN2LlcCDVxymD.PhAYU-1742359274-1.0.1.1-kqqApLf9DyroB0RzolSczJ_dugYOsAw8QCbfxtTrpKSiZgmawEGWaNiY1YLKZ3unDjhHf51i_EJhnBkGzbH77rr6gx_09IrWzp9Rji96tHE
+      domain: hubspot.com
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: false
+      creation: 2025-03-16T01:46:39.301Z
+      lastAccessed: 2025-03-19T04:41:14.738Z
+      sameSite: none
+      id: 0b927462-38b6-43e0-a87b-3fc26d7f2890
+    - key: _cfuvid
+      value: 51R7r3M4jBisGUOH22x17s1nXDVAlNz4kU6gn7nf.xM-1742089599254-0.0.1.1-604800000
+      domain: hubspot.com
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: false
+      creation: 2025-03-16T01:46:39.304Z
+      lastAccessed: 2025-03-16T01:46:39.304Z
+      sameSite: none
+      id: f2387c19-cbf1-4acd-af7a-99701630877f
+    - key: __cf_bm
+      value: ZdlsZ8CGiXUgEmLhE844tVHWW3syXPjo2iVCy5xFCBI-1742361980-1.0.1.1-7gPtf.d5VK2I9Iv8a0hxbn34xp9kpbDsSXPwQ6jYGLkX7tbtEMFYzyIwCpUB7FrnOC.2PDrQ7_3UWkP0FoxSdeFSHF9wWH38_hUBYRRKkaY
+      domain: hubapi.com
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: false
+      creation: 2025-03-16T02:37:47.339Z
+      lastAccessed: 2025-03-19T05:26:20.776Z
+      sameSite: none
+      id: a57c4e6e-5c20-4c13-b110-e39206854f40
+    - key: JSESSIONID
+      value: 807B5113B0199C4452BB0043E1827076
+      domain: 826a-2804-14d-1484-8000-3506-3236-1e6c-4f94.ngrok-free.app
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-03-19T03:53:44.710Z
+      lastAccessed: 2025-03-19T05:02:33.740Z
+      id: fb36f363-1302-459a-ab9b-c5cf5f711d61
+environments:
+  name: Base Environment
+  meta:
+    id: env_a7368ce34b4614c1baa901f9460e752f27719be2
+    created: 1741977555935
+    modified: 1742375647383
+    isPrivate: false
+  data:
+    base_url: http://localhost:8082/api/v1
