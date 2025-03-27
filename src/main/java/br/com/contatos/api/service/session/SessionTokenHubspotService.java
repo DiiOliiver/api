@@ -1,12 +1,9 @@
 package br.com.contatos.api.service.session;
 
-import br.com.contatos.api.dto.AccessTokenBodyDTO;
 import br.com.contatos.api.dto.AccessTokenResponseDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
 import java.util.HashMap;
 

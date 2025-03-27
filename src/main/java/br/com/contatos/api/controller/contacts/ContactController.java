@@ -3,7 +3,6 @@ package br.com.contatos.api.controller.contacts;
 import br.com.contatos.api.dto.ContactDTO;
 import br.com.contatos.api.dto.ResponseDTO;
 import br.com.contatos.api.service.ContactService;
-import br.com.contatos.api.service.RequestHubspotService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +23,9 @@ public class ContactController implements ContractControllerIn {
 
 	private final ContactService contactService;
 
-	private final RequestHubspotService requestHubspotService;
-
 	@Autowired
-	public ContactController(ContactService contactService, RequestHubspotService requestHubspotService) {
+	public ContactController(ContactService contactService) {
 		this.contactService = contactService;
-		this.requestHubspotService = requestHubspotService;
 	}
 
 	@Override
